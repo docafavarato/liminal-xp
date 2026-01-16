@@ -16,6 +16,8 @@ function focusModal(targetId) {
 
     modalContent.style.zIndex = globalIndex + 1;
     globalIndex += 1;
+    
+    highlightCurrentApp(targetId);
 }
 
 function closeModal(target) {
@@ -33,6 +35,7 @@ function closeModal(target) {
 function openModal(targetId) { 
     const target = document.getElementById(targetId);
     if (!target) return; 
+
     const modalContent = target.firstElementChild; 
     if (!modalContent) return; 
 
@@ -65,14 +68,23 @@ function openModal(targetId) {
     modalContent.style.top = posY + "px";
 
     target.style.visibility = "visible";
-
-    modalContent.classList.add("current-app");
+   
+    highlightCurrentApp(targetId);
     
     if (!openedApps.includes(target)) {
         openedApps.push(target);
         pushToTaskbar(target)
     }
 
+}
+
+function highlightCurrentApp(targetId) {
+    var target = document.getElementById(targetId).firstElementChild;
+    var modals = document.querySelectorAll(".application-window");
+    modals.forEach(m => {
+        m.classList.remove("current-app"); 
+    });
+    target.classList.add("current-app");
 }
 
 function nextImage(originId) {
@@ -89,7 +101,8 @@ function nextImage(originId) {
         target.firstElementChild.style.width = origin.firstElementChild.style.width;
         target.firstElementChild.style.height = origin.firstElementChild.style.height;
         target.style.display = "block";
-        target.firstElementChild.classList.add("current-app")
+
+        highlightCurrentApp(targetId);
 
         closeModal(originId);
     }
@@ -109,7 +122,8 @@ function previousImage(originId) {
         target.firstElementChild.style.width = origin.firstElementChild.style.width;
         target.firstElementChild.style.height = origin.firstElementChild.style.height;
         target.style.display = "block";
-        target.firstElementChild.classList.add("current-app");
+
+        highlightCurrentApp(targetId);
 
         closeModal(originId);
     }
@@ -160,12 +174,9 @@ $(document).ready(function () {
     var modals = document.querySelectorAll(".application-window");
     modals.forEach(modal => {
         $(modal).on("click", function() {
-            modals.forEach(m => {
-                m.classList.remove("current-app");
-            });
             modal.style.zIndex = globalIndex + 1;
             globalIndex += 1;
-            modal.classList.add("current-app");
+            highlightCurrentApp(modal.parentNode.id);
         });
     });
 });
