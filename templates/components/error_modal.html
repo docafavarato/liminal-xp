@@ -1,0 +1,21 @@
+<div id="error-modal" style="display: none;">
+    <div class="application-window audio-application-window" style="width: 20rem;">
+        <div class="window-header">
+            <div class="window-header-top">
+                <span style="color: white; margin-left: 8px;">Error</span>
+                <button onclick="closeModal('error-modal');" class="close-button">X</button>
+            </div>
+        </div>
+        <div class="window-body">
+                <div class="spaces" style="display: flex; flex-direction: column; flex-wrap: wrap; margin: 1rem;">
+                    <div style="display: flex; flex-direction: column;">
+                        <div style="display: flex; flex-direction: row; align-items: center;">
+                            <img src="{{ url_for('static', filename='styles/images/error.png') }}">
+                            <span style="margin-left: 20px;">You're not real.</span>
+                        </div>
+                        <button class="retro-btn" style="width: 120px !important; height: 35px; font-size: 14px; align-self: center;" onclick="closeModal('error-modal');">OK</button>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

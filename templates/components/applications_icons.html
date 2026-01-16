@@ -1,0 +1,26 @@
+<div id="applications">
+    <div class="application" onclick="openModal('recycle-bin')">
+        <img class="application-img" src="{{ url_for('static', filename='styles/images/trash.png') }}">
+        <span class="application-name">Recycle Bin</span>
+    </div>
+    <div class="application" onclick="openModal('liminal-folder')"> 
+        <img class="application-img" src="{{ url_for('static', filename='styles/images/file.png') }}">
+        <span class="application-name">liminal</span>
+    </div>
+    <div class="application" onclick="openModal('songs-folder')">
+        <img class="application-img" src="{{ url_for('static', filename='styles/images/music-folder.png') }}">
+        <span class="application-name">songs</span>
+    </div>
+    <div class="application" onclick="openModal('internet-explorer')">
+        <img class="application-img" src="{{ url_for('static', filename='styles/images/internet-explorer.png') }}">
+        <span class="application-name">Internet Explorer</span>
+    </div>
+    <div class="application" onclick="openModal('display-properties')">
+        <img class="application-img" src="{{ url_for('static', filename='styles/images/Additional Settings.png') }}">
+        <span class="application-name">Display properties</span>
+    </div>
+    <div class="application" onclick="openModal('cmd')" id="cmd-application-icon">
+        <img class="application-img" src="{{ url_for('static', filename='styles/images/Command Prompt.png') }}">
+        <span class="application-name">cmd</span>
+    </div>
+</div>

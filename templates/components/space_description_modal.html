@@ -1,0 +1,30 @@
+{% for space in spaces %}
+	<div id="{{ space.name }}-description" style="display: none;">
+	    <div class="application-window" style="width: 40rem;">
+            <div class="window-header">
+                <div class="window-header-top">
+                    <img src="{{ url_for('static', filename='styles/images/NOTEPAD.png') }}" style="width: 20px; margin-left: 2px;">
+                    <span style="color: white; margin-left: 3px;">description.txt</span>
+                    <button onclick="closeModal('{{ space.name }}-description')" class="close-button">X</button>
+                </div>
+
+                <div class="window-header-toolbar">
+                    <div class="toolbar">
+                        <div class="toolbar-btn">File</div>
+                        <div class="toolbar-btn">Edit</div>
+                        <div class="toolbar-btn">Format</div>
+                        <div class="toolbar-btn">View</div>
+                        <div class="toolbar-btn">Help</div>
+                    </div>
+                </div>
+                    
+            </div>
+            <div class="window-body">
+                <div class="description-modal-content" style="margin-left: 5px;">
+		    <span class="textarea" style="width: 100%;" role="textbox" contenteditable
+			    spellcheck="false">{{ space.description }}</span>
+                </div>
+            </div>
+	    </div>
+	</div>
+{% endfor %}

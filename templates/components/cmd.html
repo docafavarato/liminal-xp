@@ -1,0 +1,20 @@
+<div id="cmd" style="display: none;">
+    <div class="application-window" style="width: 800px;">
+        <div class="window-header">
+            <div class="window-header-top">
+                <img src="{{ url_for('static', filename='styles/images/Command Prompt.png') }}" style="width: 20px; margin-left: 5px;">
+                <span style="color: white; margin-left: 5px;">C:\WINDOWS\system32\cmd.exe</span>
+                <button onclick="closeModal('cmd'); closeCMD();" class="close-button">X</button>
+            </div>
+        </div>
+        <div class="window-body cmd-body" id="cmd-body" style="background-color: black !important;">
+            <div class="cmd-content" id="cmd-content">
+            </div>
+
+            <div class="cmd-input-group">
+                <span style="white-space: pre;">C:\WINDOWS> </span>
+                <input type="text" id="cmd-input">
+            </div>
+        </div>
+    </div>
+</div> 

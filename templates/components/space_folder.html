@@ -1,0 +1,78 @@
+{% for space in spaces %}
+    <div id="{{ space.name }}-folder" style="display: none;">
+        <div class="application-window" style="width: 40rem;">
+            <div class="window-header" >
+                <div class="window-header-top">
+                    <img src="{{ url_for('static', filename='styles/images/file.png') }}" style="width: 20px; margin-left: 2px;">
+                    <span style="color: white; margin-left: 3px;">{{ space.name }}</span>
+                    <button onclick="closeModal('{{ space.name }}-folder')" class="close-button">X</button>
+                </div>
+
+                <div class="window-header-toolbar">
+                    <div class="toolbar">
+                        <div class="toolbar-btn">File</div>
+                        <div class="toolbar-btn">Edit</div>
+                        <div class="toolbar-btn">View</div>
+                        <div class="toolbar-btn">Favorites</div>
+                        <div class="toolbar-btn">Tools</div>
+                        <div class="toolbar-btn">Help</div>
+                    </div>
+                    <div class="second-toolbar">
+                        <div class="second-toolbar-btn">
+                            <img src="{{ url_for('static', filename='styles/images/setaesquerda.png') }}">
+                            <span>Back</span>
+                        </div>
+                        <div class="second-toolbar-btn">
+                            <img src="{{ url_for('static', filename='styles/images/setadireita.png') }}">
+                        </div>
+                        <div class="second-toolbar-btn" style="margin-left: .5rem;">
+                            <img src="{{ url_for('static', filename='styles/images/shell32.dll_14_235-8.png') }}" style="width: 30px;">
+                        </div>
+                        <div class="second-toolbar-btn" style="margin-left: .5rem;">
+                            <img src="{{ url_for('static', filename='styles/images/search1.png') }}" style="width: 30px;">
+                            <span>Search</span>
+                        </div>
+                        <div class="second-toolbar-btn" style="margin-left: .5rem;">
+                            <img src="{{ url_for('static', filename='styles/images/file.png') }}" style="width: 30px;">
+                            <span>liminal</span>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="window-body">
+                
+                <div class="spaces-media" style="display: flex; flex-direction: row; flex-wrap: wrap; margin: .5rem;">
+                    <div class="media" style="display: flex; flex-direction: row; align-items: center; justify-content: left; width: 10rem; margin: .5rem; cursor: pointer;">
+                        <img src="{{ url_for('static', filename='styles/images/NOTEPAD.png') }}", width="50" onclick="openModal('{{ space.name }}-description')">
+                        <div class="file-info" style="display: flex; flex-direction: column;">
+                            <span  style="margin-left: 5px;">description.txt</span>
+                        </div>
+                    </div>
+                    {% set ns = namespace(image_index=0, video_index=0) %}
+                    {% for media in space.media %} 
+                        {% if ".mp4" not in media and ".mp3" not in media %}
+                            <div class="media" onclick="openModal('{{ space.name }}-image_media-{{ ns.image_index }}')" style="display: flex; flex-direction: row; align-items: center; justify-content: left; width: 10rem; margin: .5rem; cursor: pointer;">
+                                <img class="open_image_modal_preview" src="{{ media }}" width="60">
+                                <div class="file-info" style="display: flex; flex-direction: column;">
+                                    <span  style="margin-left: 5px;">{{ randomString(4, 8) }}.jpeg</span>
+                                    <span  style="margin-left: 5px;">{{ randomFileSize() }}</span>
+                                </div>
+                            </div>
+                            {% set ns.image_index = ns.image_index + 1 %}
+                        {% elif ".mp4" in media and ".mp3" not in media %}
+                            <div class="media" onclick="openModal('{{ space.name }}-video_media-{{ ns.video_index }}')" style="display: flex; flex-direction: row; align-items: center; justify-content: left; width: 10rem; margin: .5rem; cursor: pointer;">
+                                <img src="{{ url_for('static', filename='styles/images/media.png') }}" width="60">
+                                <div class="file-info" style="display: flex; flex-direction: column;">
+                                    <span  style="margin-left: 5px;">{{ randomString(4, 8) }}.mp4</span>
+                                    <span  style="margin-left: 5px;">{{ randomFileSize() }}</span>
+                                </div>
+                            </div>
+                            {% set ns.video_index = ns.video_index + 1 %}
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

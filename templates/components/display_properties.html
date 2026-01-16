@@ -1,0 +1,31 @@
+<div id="display-properties" style="display: none;">
+    <div class="application-window display-properties-application-window" style="width: 400px !important;">
+        <div class="window-header">
+            <div class="window-header-top">
+                <span style="color: white; margin-left: 5px;">Display Properties</span>
+                <button onclick="closeModal('display-properties');" class="close-button">X</button>
+            </div>
+        </div>
+        <div class="window-body">
+                <div class="spaces" style="display: flex; flex-direction: column; flex-wrap: wrap; margin: 1rem; align-items: center;">
+                    <div class="monitor-wrapper">
+                        <img id="crt-monitor" src="{{ url_for('static', filename='styles/images/crt_monitor.png') }}" width="200">
+                        <img id="wallpaper-preview" src="{{ url_for('static', filename='styles/images/background/' + 'xp.jpg') }}">
+                    </div>
+                    
+                    <div id="wallpaper-options-container">
+                        <span>Background</span>
+                        <ul id="wallpaper-options-list">
+                            {% for wallpaper in wallpapers %}
+                            <li onclick="changePreview('{{ url_for('static', filename='styles/images/background/' + wallpaper) }}');">
+                                    <img src="{{ url_for('static', filename='styles/images/background/' + wallpaper) }}"> {{ wallpaper }}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <button id="changeWallpaperButton" onclick="changeWallpaper();">Apply</button>
+                </div>
+        </div>
+    </div>
+</div>

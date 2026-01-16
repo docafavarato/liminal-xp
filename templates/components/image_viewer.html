@@ -1,0 +1,34 @@
+{% for space in spaces %}
+    {% set ns = namespace(image_index=0) %}
+    {% for media in space.media %}
+        {% if ".mp4" not in media and ".mp3" not in media %}
+            <div class="image-media" id="{{ space.name }}-image_media-{{ ns.image_index }}" style="display: none;">
+                <div class="application-window image-viewer">
+                    <div class="window-header">
+                        <div class="window-header-top">
+                            <img src="{{ url_for('static', filename='styles/images/Windows Picture and Fax Viewer.png') }}" style="width: 20px; margin-left: 2px;">
+                            <span style="color: white; margin-left: 3px;">{{ loop.index }}.jpeg - Windows Picture and Fax Viewer</span>
+                            <button onclick="closeModal('{{ space.name }}-image_media-{{ ns.image_index }}')" class="close-button">X</button>
+                        </div>
+                    </div>
+                    <div class="window-body">
+                        <div class="spaces-media-image" style="display: flex; align-items: center; justify-content: center;">
+                            <img src="{{ media }}" class="image-content">
+                        </div>
+                        <div class="image-viewer-tools">
+                            <img class="previous-image" onclick="previousImage('{{ space.name }}-image_media-{{ ns.image_index }}');" src="{{ url_for('static', filename='styles/images/Back.png') }}">
+                            <img class="next-image" onclick="nextImage('{{ space.name }}-image_media-{{ ns.image_index }}');" src="{{ url_for('static', filename='styles/images/Forward.png') }}">
+                            <vr></vr>
+                            <img class="open-error-modal" src="{{ url_for('static', filename='styles/images/Explorer Delete.png') }}">
+                            <img class="open-error-modal" src="{{ url_for('static', filename='styles/images/Printers and Faxes.png') }}">
+                            <img class="open-error-modal" src="{{ url_for('static', filename='styles/images/Save.png') }}">
+                            <vr></vr>
+                            <img class="open-error-modal" src="{{ url_for('static', filename='styles/images/Help and Support.png') }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% set ns.image_index = ns.image_index + 1 %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}

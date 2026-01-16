@@ -1,0 +1,16 @@
+<div class="board-creation">
+    <button data-bs-toggle="collapse" type="button" data-bs-target="#board-creation-form-collapse" aria-expanded="false" aria-controls="board-creation-form-collapse">Create board</button>
+        <div class="collapse" id="board-creation-form-collapse">
+            <form method="post" name="create-board" hx-post="{{ url_for('create_board' )}}" hx-target=".listed-boards" hx-swap="innerHTML'">
+                <label for="name">Board name</label>
+                <input type="text" name="board-name">
+                <input type="submit">
+            </form>
+        </div>
+</div>
+
+<div class="listed-boards" style="align-items: center; margin-top: 20px;">
+    {% for board in boards %} 
+        <span onclick="handleURL('{{ board.name }}')" hx-get="{{ url_for('get_board', boardId=board.id) }}" hx-target=".forum-posts" hx-swap="innerHTML" style="font-size: 22px; margin-bottom: 5px; color: blue; text-decoration: underline;">/{{ board.name }}/</span>
+    {% endfor %}
+</div>

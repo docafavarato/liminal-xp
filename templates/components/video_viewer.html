@@ -1,0 +1,49 @@
+{% for space in spaces %}
+    {% set ns = namespace(video_index=0) %}
+    {% for media in space.media %}
+        {% if ".mp4" in media and ".mp3" not in media %}
+            <div id="{{ space.name }}-video_media-{{ ns.video_index }}" style="display: none;">
+                <div class="application-window video-application-window" style="width: 40rem;">
+                    <div class="window-header">
+                        <div class="window-header-top">
+                            <img src="{{ url_for('static', filename='styles/images/VLC_icon.png') }}" style="width: 20px; margin-left: 2px;">
+                            <span style="color: white; margin-left: 3px;">VLC media player</span>
+                            <button onclick="closeModal('{{ space.name }}-video_media-{{ ns.video_index }}'); closeVideo('{{ space.name }}-video-{{ ns.video_index }}')" class="close-button">X</button>
+                        </div>
+                        
+                        <div class="window-header-toolbar">
+                            <div class="toolbar">
+                                <div class="toolbar-btn">File</div>
+                                <div class="toolbar-btn">View</div>
+                                <div class="toolbar-btn">Settings</div>
+                                <div class="toolbar-btn">Audio</div>
+                                <div class="toolbar-btn">Video</div>
+                                <div class="toolbar-btn">Navigation</div>
+                                <div class="toolbar-btn">Help</div>
+                            </div>
+                            <div class="toolbar">
+                                <div class="toolbar-btn ignore-error" onclick="playVideo('{{ space.name }}-video-{{ ns.video_index }}')">▶︎</div>
+                                <div class="toolbar-btn ignore-error" onclick="stopVideo('{{ space.name }}-video-{{ ns.video_index }}')">◼</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="window-body">
+                        <div class="spaces-media-image" style="display: flex; flex-direction: column; align-items: center;">
+                            <video id="{{ space.name }}-video-{{ ns.video_index }}" width="800">
+                                <source src="{{ media }}">
+                            </video>
+                            <div class="vlc-controls" style="width: 100%;">
+                                <input style="width: 90%;" type="range" id="{{ space.name }}-video_progress-{{ ns.video_index }}" value="0" min="0" step="0.1" onchange="setProgress('{{ space.name }}', '{{ ns.video_index }}')">
+                            </div>
+                            <div class="video-informations">
+                                <span id="{{ space.name }}-video_progress_text-{{ ns.video_index }}" style="border-right: .1px solid grey;"></span>
+                                <span style="margin-left: 5px; border-left: .1px solid grey; border-right: .1px solid grey;">{{ media }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% set ns.video_index = ns.video_index + 1 %}
+        {% endif %}
+    {% endfor %}
+{% endfor %}

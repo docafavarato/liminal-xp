@@ -1,0 +1,53 @@
+<div id="recycle-bin" style="display: none;">
+    <div class="application-window" style="width: 40rem;">
+        <div class="window-header">
+            <div class="window-header-top">
+                <img src="{{ url_for('static', filename='styles/images/trash.png') }}" style="width: 20px; margin-left: 4px;">
+                <span style="color: white; margin-left: 5px;">Recycle Bin</span>
+                <button onclick="closeModal('recycle-bin')" class="close-button">X</button>
+            </div>
+            <div class="window-header-toolbar">
+                <div class="toolbar">
+                    <div class="toolbar-btn">File</div>
+                    <div class="toolbar-btn">Edit</div>
+                    <div class="toolbar-btn">Edit</div>
+                    <div class="toolbar-btn">Favorites</div>
+                    <div class="toolbar-btn">Tools</div>
+                    <div class="toolbar-btn">Help</div>
+                </div>
+                <div class="second-toolbar">
+                    <div class="second-toolbar-btn">
+                        <img src="{{ url_for('static', filename='styles/images/setaesquerda.png') }}">
+                        <span>Back</span>
+                    </div>
+                    <div class="second-toolbar-btn">
+                        <img src="{{ url_for('static', filename='styles/images/setadireita.png') }}">
+                    </div>
+                    <div class="second-toolbar-btn" style="margin-left: .5rem;"> 
+                        <img src="{{ url_for('static', filename='styles/images/shell32.dll_14_235-8.png') }}" style="width: 30px;">
+                    </div>
+                    <div class="second-toolbar-btn" style="margin-left: .5rem;">
+                        <img src="{{ url_for('static', filename='styles/images/search1.png') }}" style="width: 30px;">
+                        <span>Search</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        <div class="window-body" style="border-bottom: none;">
+            <div class="spaces" style="display: flex; flex-direction: row; flex-wrap: wrap; margin: .5rem;">
+                <div class="media open-error-modal" style="display: flex; flex-direction: row; align-items: center; justify-content: left; width: 10rem; margin: .5rem; cursor: pointer;">
+                    <img src="{{ url_for('static', filename='styles/images/NOTEPAD.png') }}", width="50">
+                    <div class="file-info" style="display: flex; flex-direction: column;">
+                        <span  style="margin-left: 5px;">answers.txt</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="recycle-bin-footer">
+            <span style="margin-left: 5px;">1 object</span>
+            <vr style="margin-left: 1rem; height: 25px;"></vr>
+            <span style="margin-left: 5px;">1337 bytes</span>
+            <vr style="margin-left: 2rem;"></vr>
+        </div>
+    </div>
+</div>

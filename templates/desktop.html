@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles/index.css') }}">
+    
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"
+        integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='scripts/vlcplayer.js') }}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="{{ url_for('static', filename='scripts/modal.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/songs.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/displayProperties.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/cmd.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/effects.js') }}"></script>
+    <script src="{{ url_for('static', filename='scripts/internetExplorer.js') }}"></script>
+    <script src="https://kit.fontawesome.com/d5b8554779.js" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/htmx.org@2.0.8/dist/htmx.min.js"></script>    
+    <title>Liminal XP</title>
+</head>
+    <body>
+        {% block body %} 
+
+            <div id="containment">
+                {% include 'components/applications_icons.html' %}
+
+                {% include 'components/recycle_bin_folder.html' %}
+
+                {% include 'components/error_modal.html' %}
+
+                {% include 'components/cmd.html' %}
+
+                {% include 'components/display_properties.html' %}    
+
+                {% include 'components/music_player.html' %}
+
+                {% include 'components/liminal_folder.html' %}
+
+                {% include 'components/songs_folder.html' %}
+
+                {% include 'components/song_toast.html' %}
+
+                {% include 'components/space_description_modal.html' %}
+
+                {% include 'components/space_folder.html' %}
+
+                {% include 'components/image_viewer.html' %}
+
+                {% include 'components/video_viewer.html' %}
+
+                {% include 'components/internet_explorer.html' %}
+            </div>
+
+            <div id="bottom-bar">
+                <div id="windows">
+                    <img src="{{ url_for('static', filename='styles/images/start.png') }}">
+                </div>
+                
+                <img id="bar" src="{{ url_for('static', filename='styles/images/bar-replica.png') }}">
+
+                <div id="taskbar"></div>
+            </div>
+
+            {% for effect in effects %}
+                <audio id="{{ effect.split('.mp3')[0] }}">
+                    <source src="{{ url_for('static', filename='styles/audios/effects/' + effect) }}"> 
+                </audio>
+            {% endfor %}
+
+            <div id="holder" autoplay="on"></div>
+
+
+            <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.min.js" integrity="sha384-G/EV+4j2dNv+tEPo3++6LCgdCROaejBqfUeNjuKAiuXbjrxilcCdDz6ZAVfHWe1Y" crossorigin="anonymous"></script>
+        {% endblock %}
+
+            
+        </body>
+</html>

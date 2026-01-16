@@ -1,0 +1,13 @@
+<div class="board-content" style="display: flex; align-items: center; justify-content: center; margin-top: 20px;">
+    <div class="board-info" style="display: flex; flex-direction: column; align-items: center;">
+        <span style="font-size: 40px;">{{ board.name }}</span>
+        <span>Created at {{ board.createdAt }} by <b>Anonymous</b></span>
+    </div>
+    <div class="board-posts">
+        {% for post in posts %}
+            <div class="board-post">
+                {{ post }}
+            </div>
+        {% endfor %}
+    </div>
+</div>

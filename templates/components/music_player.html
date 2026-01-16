@@ -1,0 +1,61 @@
+{% for song in songs %}
+    <audio id="{{ song }}" class="liminal-song" song_name="{{ song }}">
+        <source src="{{ url_for('static', filename='styles/audios/songs/' + song) }}">
+    </audio>
+
+    <div id="{{ song }}-player" style="display: none;">
+        <div class="application-window audio-application-window" style="width: 12rem !important;">
+            <div class="window-header">
+                <div class="window-header-top">
+                    <img src="{{ url_for('static', filename='styles/images/song-icon.png') }}" style="width: 20px; margin-left: 5px;">
+                    <span style="color: white; margin-left: 5px;">{{ song }} - Music player</span>
+                    <button onclick='closeModal("{{ song }}-player"); closeSong("{{ song }}");' class="close-button">X</button>
+                </div>
+
+                <div class="window-header-toolbar">
+                    <div class="toolbar">
+                        <div class="toolbar-btn">File</div>
+                        <div class="toolbar-btn">Edit</div>
+                        <div class="toolbar-btn">Effects</div>
+                        <div class="toolbar-btn">Help</div>
+                    </div>
+                </div>
+            </div>
+            <div class="window-body">
+                    <div class="spaces" style="display: flex; flex-direction: column; flex-wrap: wrap; margin: 1rem;">
+                        <div style="display: flex; flex-direction: row; align-items: center;justify-content: center;">
+                            <div style="width: 95px; height: 60px; display: flex; flex-direction: column; border: 1px solid grey; align-items: center; justify-content: center; font-size: 24px;">
+                                <span>Position:</span>
+                                <span id="{{ song }}-audio_position"></span>
+                            </div>
+                            <span style="font-size: 20px; margin: .5rem;">{{ song }}</span>
+                                <div style="display: flex; flex-direction: column; border: 1px solid grey; align-items: center; justify-content: center; width: 95px; height: 60px; font-size: 24px;">
+                                <span>Length:</span>
+                                <span id="{{ song }}-audio_length"></span>
+                            </div>
+                        </div>
+
+                        <div class="song-progress" style="margin-top: 20px; margin-bottom: 20px;">
+                            <input style="width: 100%;" type="range" id="{{ song }}-audio_progress" value="0" min="0" step="0.1" onchange='setSongProgress("{{ song }}")'>
+                        </div>
+
+                        <div class="controls" style="margin-top: 10px">
+                            <button class="retro-btn" onclick='songBackward("{{ song }}")'>
+                                <span style="color: #000;"><i class="fa-solid fa-backward"></i></span>
+                            </button>
+                            <button style="margin-left: 8px;" class="retro-btn" onclick='songForward("{{ song }}")'>
+                                <span style="color: #000;"><i class="fa-solid fa-forward"></i></span>
+                            </button> 
+                            <button style="margin-left: 8px" class="retro-btn" onclick='playSong("{{ song }}")'>
+                                <span style="color: #000; margin-top: -2px;">▶</span>
+                            </button>
+                            <button style="margin-left: 8px;" class="retro-btn" onclick='pauseSong("{{ song }}")'>
+                                <span style="color: #000; margin-top: -2px;">◼</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endfor %}

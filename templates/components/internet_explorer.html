@@ -1,0 +1,91 @@
+<div id="internet-explorer" style="display: none;">
+    <div class="application-window" style="width: 900px; min-width: 610px;">
+        <div class="window-header">
+            <div class="window-header-top">
+                <img src="{{ url_for('static', filename='styles/images/internet-explorer.png') }}" style="width: 20px; margin-left: 2px;">
+                <span style="color: white; margin-left: 5px;">Internet Explorer</span>
+                <button onclick="closeModal('internet-explorer')" class="close-button">X</button>
+            </div>
+            <div class="window-header-toolbar">
+                <div class="toolbar" style="height: 40px; align-items: center;">
+                    <div class="ignore-error toolbar-btn-ie" style="margin-left: 5px;" hx-get="{{ url_for('get_boards_list' )}}" hx-target=".forum-posts">
+                        <img src="{{ url_for('static', filename='styles/images/Back.png') }}" width="25">
+                        <span style="margin-left: 5px;">Back</span>
+                    </div>
+                    <div class="toolbar-btn-ie" style="margin-left: 20px;">
+                        <img src="{{ url_for('static', filename='styles/images/Forward.png') }}" width="25">
+                    </div>
+                    <div class="toolbar-btn-ie" style="margin-left: 20px;">
+                        <img src="{{ url_for('static', filename='styles/images/paper.png') }}" width="30">
+                    </div>
+                    <div class="toolbar-btn-ie">
+                        <img src="{{ url_for('static', filename='styles/images/paper2.png') }}" width="30">
+                    </div>
+                    <div class="toolbar-btn-ie">
+                        <img src="{{ url_for('static', filename='styles/images/IE Home.png') }}" width="25" style="margin-left: 5px;">
+                    </div>
+                    <vr style="height: 40px; margin-left: 10px;"></vr>
+                    <div class="toolbar-btn-ie" style="margin-left: 10px;">
+                        <img src="{{ url_for('static', filename='styles/images/Search.png') }}" width="30">
+                        <span style="margin-left: 3px;">Search</span>
+                    </div>
+                    <div class="toolbar-btn-ie" style="margin-left: 5px;">
+                        <img src="{{ url_for('static', filename='styles/images/Favorites.png') }}" width="30">
+                        <span style="margin-left: 3px;">Favorites</span>
+                    </div>
+                    <div class="toolbar-btn-ie">
+                        <img src="{{ url_for('static', filename='styles/images/clock-rewind.png') }}" width="30">
+                    </div>
+                    <vr style="height: 40px; margin-left: 10px;"></vr>
+                    <div class="toolbar-btn-ie" style="margin-left: 10px;">
+                        <img src="{{ url_for('static', filename='styles/images/Email.png') }}" width="25">
+                    </div>
+                    <div class="toolbar-btn-ie" style="margin-left: 5px;">
+                        <img src="{{ url_for('static', filename='styles/images/Printer.png') }}" width="25">
+                    </div>
+                    <div class="toolbar-btn-ie">
+                        <img src="{{ url_for('static', filename='styles/images/letter.png') }}" width="30">
+                    </div>
+                    <div class="toolbar-btn-ie" style="margin-left: 5px;">
+                        <img src="{{ url_for('static', filename='styles/images/Windows Messenger.png') }}" width="30">
+                    </div>
+                </div>
+                <div class="second-toolbar-ie">
+                    <span style="margin-left: 5px; margin-right: 5px;">Address</span>
+                    <input id="internet-explorer-input" type="text" value="0.0.0.0:1337/liminal.chan/" style="height: 20px; width: 920px;">
+                    <div class="toolbar-btn-ie" style="height: 20px; margin-right: 10px; margin-left: 5px;">
+                        <img src="{{ url_for('static', filename='styles/images/My Network Places.png') }}" width="20">
+                        <span style="margin-left: 5px;">Go</span>
+                    </div>
+                    <vr style="height: 25px;"></vr>
+                    <span style="margin-left: 10px; margin-right: 5px;">Links</span>
+                </div>
+            </div>
+        </div>
+        <div class="window-body">
+            <div class="board-banner">
+                <img src="{{ url_for('static', filename='styles/images/banner.png') }}" style="width: 40%;">
+            </div>
+            
+            <div class="forum-posts">
+                
+                <div class="board-creation">
+                    <button data-bs-toggle="collapse" type="button" data-bs-target="#board-creation-form-collapse" aria-expanded="false" aria-controls="board-creation-form-collapse">Create board</button>
+                    <div class="collapse" id="board-creation-form-collapse">
+                        <form method="post" name="create-board" hx-post="{{ url_for('create_board' )}}" hx-target=".listed-boards" hx-swap="innerHTML'">
+                            <label for="name">Board name</label>
+                            <input type="text" name="board-name">
+                            <input type="submit">
+                        </form>
+                    </div>
+                </div>
+
+                <div class="listed-boards" style="align-items: center; margin-top: 20px;">
+                    {% for board in boards %} 
+                    <span onclick="handleURL('{{ board.name }}');" hx-get="{{ url_for('get_board', boardId=board.id) }}" hx-target=".forum-posts" hx-swap="innerHTML" style="font-size: 22px; margin-bottom: 5px; color: blue; text-decoration: underline;">/{{ board.name }}/</span>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,645 @@
+@font-face {
+    font-family: "windows-xp";
+    src: url('./images/windows-xp-tahoma.ttf');
+}
+
+body {
+    background-image: url('./images/xp.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    overflow: hidden;
+    height: 100vh !important;
+    width: 100vw !important;
+    font-family: "windows-xp" !important;
+    font-size: 18px !important;
+    user-select: none;
+}
+
+html, body {
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#bottom-bar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 39px;
+    width: 100%;
+    z-index: 1;
+}
+
+#bottom-bar #bar {
+    width: 100%;
+    position: absolute;
+}
+
+#bottom-bar #windows {
+    position: absolute;
+    width: 130px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#bottom-bar #windows img {
+    width: 100%;
+    height: 100%;
+}
+
+#taskbar {
+    position: absolute;
+    top: 3px;
+    left: 140px;
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+    height: 35px;
+    gap: 5px;
+}
+
+.taskbar-app {
+    flex: 1 1 160px;
+    max-width: 160px;
+    min-width: 30px;
+    background: linear-gradient(to bottom, #3c81f3 0%, #1653d4 100%);
+    text-overflow: ellipsis;
+    display: flex;
+    align-items: center;
+    height: 35px;
+    white-space: nowrap;
+    overflow: hidden;
+    border-radius: 3px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.taskbar-app img {
+    width: 25px;
+}
+
+.taskbar-app span {
+    color: white;
+    margin-left: 5px;
+}
+
+#containment {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: calc(100vh - 39px);
+    width: 100vw;
+    overflow: hidden;
+}
+
+.application {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    margin-top: 1.5rem;
+    cursor: pointer;
+}
+
+.application-name {
+    margin-top: 6px;
+    color: white;
+}
+
+.window-header-top {
+    background-color: #0154ea;
+    display: flex;
+    align-items: center;
+    height: 30px; 
+    border-top-left-radius: 6px; 
+    border-top-right-radius: 6px;
+    flex-shrink: 0;
+}
+
+.close-button {
+    border: 1px solid white;
+    border-radius: 3px;
+    color: white;
+    line-height: 1rem !important;
+    background-color: red;
+    background-image: radial-gradient(
+      circle at 90% 90%,
+      #cc4600 0%,
+      #dc6527 55%,
+      #cd7546 70%,
+      #ffccb2 90%,
+      white 100%
+    );
+    height: 1.5rem;
+    width: 1.5rem;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: 6px;
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: row;
+    background-color: #f0ecd4;
+    border-bottom: .1px solid grey;
+}
+
+.toolbar-btn-ie {
+    cursor: pointer;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #f0ecd4; 
+    height: 30px;
+}
+
+.toolbar-btn-ie:hover {
+    border: 1px solid grey;
+}
+
+.toolbar-btn {
+    cursor: pointer;
+    height: 100%;
+    min-width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 25px;
+    margin-right: 10px;
+}
+
+.toolbar-btn:hover {
+    background-color: #1661e9 !important;
+    color: white !important
+}
+
+.window-body {
+    height: 30rem;
+    background-color: white;
+}
+
+.application-window {
+    resize: both;  
+    overflow-x: hidden;
+    min-width: 200px;
+    min-height: 100px;
+}
+
+.application-window {
+    position: absolute;
+    width: 40rem;
+    height: 30rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.audio-application-window {
+    resize: none !important;
+    min-width: fit-content !important;
+    height: auto !important;
+}
+
+.video-application-window {
+    resize: none !important;
+    min-width: fit-content!important;
+    height: auto !important;
+}
+
+.display-properties-application-window {
+    resize: none !important;
+    height: auto !important;
+}
+
+.application-img {
+    width: 50px;
+}
+
+.window-body {
+    flex: 1;
+    overflow-x: hidden;
+    background-color: white;
+    border-right: 2px solid #0154ea;
+    border-left: 2px solid #0154ea;
+    border-bottom: 2px solid #0154ea;
+}
+
+.window-header-toolbar {
+    border-right: 2px solid #0154ea;
+    border-left: 2px solid #0154ea;
+}
+
+.second-toolbar-ie {
+    display: flex;
+    flex-direction: row;
+    background-color: #f0ecd4;
+    border-bottom: .1px solid grey;
+    height: 25px;
+    align-items: center;
+}
+
+.second-toolbar {
+    display: flex;
+    flex-direction: row;
+    background-color: #f0ecd4;
+    border-bottom: .1px solid grey;
+    height: 40px;
+}
+
+.second-toolbar-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.second-toolbar-btn * {
+    margin: .1rem;
+}
+
+.space {
+    border: 1px solid white;
+}
+
+.space:hover {
+    border: 1px solid gray;
+}
+
+.media {
+    border: 1px solid white;
+}
+
+.media:hover {
+    border: 1px solid gray;
+}
+
+.vlc-controls {
+    background-color: #f0ecd4;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: .1px solid grey;
+}
+
+.video-informations {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+    background-color: #f0ecd4;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 22px;
+}
+
+
+.textarea {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    resize: none;
+    line-height: 20px;
+    cursor: text;
+}
+
+.textarea:focus {
+    outline: none !important;
+}
+
+.retro-btn {
+  /* Dimensões e Cores Base */
+  width: 75px;
+  height: 35px;
+  background-color: #d4d0c8; /* Cinza clássico Windows */
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  outline: none;
+  
+  border-top: 2px solid #ffffff;
+  border-left: 2px solid #ffffff;
+  border-bottom: 2px solid #808080;
+  border-right: 2px solid #808080;
+  
+  /* Pequena sombra externa para finalizar o relevo */
+  box-shadow: inset -1px -1px 0px #404040, 1px 1px 0px #404040;
+}
+
+/* Efeito de botão pressionado */
+.retro-btn:active {
+  border-top: 2px solid #808080;
+  border-left: 2px solid #808080;
+  border-bottom: 2px solid #ffffff;
+  border-right: 2px solid #ffffff;
+  box-shadow: inset 1px 1px 0px #404040;
+  padding: 2px 0 0 2px; /* Desloca o ícone levemente para parecer que afundou */
+}
+
+.controls {
+    display: flex;
+    flex-direction: row;
+}
+
+/********** Range Input Styles **********/
+/*Range Reset*/
+input[type="range"] {
+   -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+    width: 15rem;
+}
+
+/* Removes default focus */
+input[type="range"]:focus {
+  outline: none;
+}
+
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: grey;
+    border-radius: 0rem;
+    height: 0.1rem;  
+}
+
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -16px; /* Centers thumb on the track */
+    width: 1.1rem !important;
+    background-color: #d4d0c8;
+    height: 2rem;
+    border-top: 2px solid #ffffff;
+    border-left: 2px solid #ffffff;
+    border-bottom: 2px solid #808080;
+    border-right: 2px solid #808080;
+  
+    box-shadow: inset -1px -1px 0px #404040, 1px 1px 0px #404040;width: 0.8rem;
+}
+
+.image-viewer {
+    max-height: 90vh !important; 
+    display: flex;
+    flex-direction: column;
+}
+
+.image-viewer .window-body {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* Impede qualquer rolagem */
+    flex: 1;
+}
+
+.spaces-media-image {
+    flex: 1; /* Ocupa todo o espaço disponível entre o header e o footer de ferramentas */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+    background-color: white; /* Ou a cor que desejar para o fundo da foto */
+}
+
+.image-viewer .image-content {
+    max-width: 100%;
+    max-height: 100%;
+    width: auto;
+    height: auto;
+    object-fit: contain; /* Mantém a proporção sem cortar a imagem */
+    display: block;
+}
+
+.image-viewer-tools {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.image-viewer-tools img {
+    width: 25px;
+    cursor: pointer;
+}
+
+vr {
+    width: 1px;
+    height: 30px;
+    background-color: gray;
+}
+
+#wallpaper-options-container {
+    width: 100%;
+    height: 200px;
+    background-color: #fff;
+}
+
+#wallpaper-options-list {
+    overflow-y: scroll;
+    box-sizing: border-box;
+    border: 2px solid #7F9DB9;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    height: 150px;
+}
+
+#wallpaper-options-list li {
+    display: flex;
+    align-items: center;
+    padding: 2px 4px;
+    white-space: nowrap;
+    color: #000;
+}
+
+#wallpaper-options-list li img {
+    width: 16px;
+    margin-right: 4px;
+}
+
+#wallpaper-options-list li.selected {
+    background-color: #316AC5;
+    color: #fff;
+}
+
+#wallpaper-preview {
+    width: 190px;
+    position: absolute;
+    top: 10%;
+    left: 2;
+    z-index: 1;
+    object-fit: cover;
+}
+
+.monitor-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    width: 200px;
+}
+
+#crt-monitor {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
+}
+
+#changeWallpaperButton {
+    width: 70px;
+    align-self: flex-end;
+}
+
+.cmd-content {
+    background-color: black !important;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cmd-content span {
+    color: inherit;
+    white-space: pre;
+    font-size: 16px;
+}
+
+.cmd-input-group {
+    display: flex;
+    flex-direction: row;
+    color: white;
+    margin: 5px;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.cmd-input-group input {
+    width: 100%;
+    background-color: black;
+    border: none;
+    caret-color: white;
+    color: white;
+    font-size: 16px;
+    font-family: 'Courier New', Courier, monospace;
+    height: 15px !important;
+}
+
+.cmd-input-group input:focus {
+    outline: none;
+}
+
+.cmd-input-span {
+    margin-top: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: #dfdfdf; /* Cor cinza clara clássica */
+  box-shadow: inset 1px 1px 0 #fff, inset -1px -1px 0 #808080;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #dfdfdf;
+  box-shadow: 
+    inset 1px 1px 0 #fff, 
+    inset -1px -1px 0 #808080,
+    1px 1px 0 #000;
+  border: 1px solid #dfdfdf;
+}
+
+::-webkit-scrollbar-thumb:active {
+  box-shadow: 
+    inset 1px 1px 0 #808080, 
+    inset -1px -1px 0 #fff;
+}
+
+::-webkit-scrollbar-button:single-button {
+  background-color: #dfdfdf;
+  display: block;
+  border: 1px solid #dfdfdf;
+  box-shadow: 
+    inset 1px 1px 0 #fff, 
+    inset -1px -1px 0 #808080,
+    1px 1px 0 #000;
+  background-size: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+::-webkit-scrollbar-button:single-button:vertical:decrement {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='black'><polygon points='50,20 10,80 90,80'/></svg>");
+}
+
+::-webkit-scrollbar-button:single-button:vertical:increment {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='100' height='100' fill='black'><polygon points='50,80 10,20 90,20'/></svg>");
+}
+
+::-webkit-scrollbar-button:active {
+  box-shadow: inset 1px 1px 0 #808080, inset -1px -1px 0 #fff;
+}
+
+#song-toast-content {
+    margin-left: 10px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+}
+
+#song-toast .window-body {
+    display: flex;
+    align-items: center;
+}
+
+#song-toast {
+    position: fixed;
+    bottom: 135px;
+    right: 305px;
+    z-index: 999999;
+    opacity: 0.9;
+}
+
+#song-toast-application-window {
+    width: 18rem;
+    height: 5rem;
+    resize: none;
+}
+
+.recycle-bin-footer {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    background-color: #f0ecd4;
+    height: 30px;
+    align-items: center;
+    border-right: 2px solid #0154ea !important;
+    border-left: 2px solid #0154ea;
+    border-bottom: 2px solid #0154ea;
+}
+
+.board-banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.listed-boards {
+    display: flex;
+    flex-direction: column;
+}
