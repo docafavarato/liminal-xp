@@ -608,7 +608,7 @@ vr {
 
 #song-toast {
     position: fixed;
-    bottom: 135px;
+    bottom: 155px;
     right: 305px;
     z-index: 999999;
     opacity: 0.9;
