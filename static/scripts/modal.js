@@ -131,7 +131,7 @@ function previousImage(originId) {
 
 function removeFromTaskbar(app) {
     appName = app.querySelector(".window-header-top span").innerText;
-    var element = document.getElementById("taskbar-app-" + appName);
+    var element = document.getElementById("taskbar-app-" + app.id + "-" + appName);
     element.remove();
 }
 
@@ -144,7 +144,7 @@ function pushToTaskbar(app) {
     appName = app.querySelector(".window-header-top span").innerText;
 
     var taskbar = document.getElementById("taskbar");
-    taskbar.innerHTML += `<div onclick='focusModal("${app.id}")' class='taskbar-app' id='taskbar-app-${appName}'><img src='${appIcon}'><span>${appName}</span></div>`;
+    taskbar.innerHTML += `<div onclick='focusModal("${app.id}")' class='taskbar-app' id='taskbar-app-${app.id}-${appName}'><img src='${appIcon}'><span>${appName}</span></div>`;
 }
 
 $(document).ready(function () {
