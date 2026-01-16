@@ -15,7 +15,7 @@ function focusModal(targetId) {
     const modalContent = target.firstElementChild;
 
     modalContent.style.zIndex = globalIndex + 1;
-    globalIndex = modalContent.style.zIndex;
+    globalIndex += 1;
 }
 
 function closeModal(target) {
@@ -156,8 +156,8 @@ $(document).ready(function () {
     var modals = document.querySelectorAll(".application-window");
     modals.forEach(modal => {
         $(modal).on("click", function() {
+            modal.style.zIndex = globalIndex + 1;
             globalIndex += 1;
-            modal.style.zIndex = globalIndex;
         });
     });
 });
