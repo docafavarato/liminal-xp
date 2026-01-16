@@ -523,6 +523,8 @@ vr {
     color: white;
     margin: 5px;
     font-size: 16px;
+    align-items: center;
+    justify-content: center;
     font-family: 'Courier New', Courier, monospace;
 }
 
@@ -534,7 +536,7 @@ vr {
     color: white;
     font-size: 16px;
     font-family: 'Courier New', Courier, monospace;
-    height: 15px !important;
+    height: 24px !important;
 }
 
 .cmd-input-group input:focus {
