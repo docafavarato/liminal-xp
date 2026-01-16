@@ -1,4 +1,4 @@
-var globalIndex = 1;
+var globalIndex = 0;
 
 let currentMouseX = 0;
 let currentMouseY = 0;
@@ -15,7 +15,7 @@ function focusModal(targetId) {
     const modalContent = target.firstElementChild;
 
     modalContent.style.zIndex = globalIndex + 1;
-    globalIndex += 1;
+    globalIndex = modalContent.style.zIndex;
 }
 
 function closeModal(target) {
@@ -60,7 +60,7 @@ function openModal(targetId) {
     if (posX < 0) posX = 10;
     if (posY < 0) posY = 10;
 
-    modalContent.style.zIndex = globalIndex + 2;
+    modalContent.style.zIndex = globalIndex + 1;
     modalContent.style.left = posX + "px";
     modalContent.style.top = posY + "px";
 
