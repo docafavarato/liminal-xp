@@ -27,19 +27,19 @@ function closeModal(target) {
 
     openedApps.splice(openedApps.indexOf(target), 1);
     removeFromTaskbar(target);
-}
+    target.firstElementChild.classList.remove("current-app"); 
+} 
 
-function openModal(targetId) {
+function openModal(targetId) { 
     const target = document.getElementById(targetId);
-    if (!target) return;
+    if (!target) return; 
+    const modalContent = target.firstElementChild; 
+    if (!modalContent) return; 
 
-    const modalContent = target.firstElementChild;
-    if (!modalContent) return;
+    target.style.visibility = "hidden"; 
+    target.style.display = "block"; 
 
-    target.style.visibility = "hidden";
-    target.style.display = "block";
-
-    const viewW = window.innerWidth;
+    const viewW = window.innerWidth; 
     const viewH = window.innerHeight;
     const modalW = modalContent.offsetWidth;
     const modalH = modalContent.offsetHeight;
@@ -65,6 +65,8 @@ function openModal(targetId) {
     modalContent.style.top = posY + "px";
 
     target.style.visibility = "visible";
+
+    modalContent.classList.add("current-app");
     
     if (!openedApps.includes(target)) {
         openedApps.push(target);
@@ -87,6 +89,7 @@ function nextImage(originId) {
         target.firstElementChild.style.width = origin.firstElementChild.style.width;
         target.firstElementChild.style.height = origin.firstElementChild.style.height;
         target.style.display = "block";
+        target.firstElementChild.classList.add("current-app")
 
         closeModal(originId);
     }
@@ -106,6 +109,7 @@ function previousImage(originId) {
         target.firstElementChild.style.width = origin.firstElementChild.style.width;
         target.firstElementChild.style.height = origin.firstElementChild.style.height;
         target.style.display = "block";
+        target.firstElementChild.classList.add("current-app");
 
         closeModal(originId);
     }
@@ -156,8 +160,12 @@ $(document).ready(function () {
     var modals = document.querySelectorAll(".application-window");
     modals.forEach(modal => {
         $(modal).on("click", function() {
+            modals.forEach(m => {
+                m.classList.remove("current-app");
+            });
             modal.style.zIndex = globalIndex + 1;
             globalIndex += 1;
+            modal.classList.add("current-app");
         });
     });
 });
