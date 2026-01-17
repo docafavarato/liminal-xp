@@ -5,7 +5,7 @@ $(document).ready(function () {
     $(document).on("click", () => clickEffect.play());
 
     var toolbarButtons = document.querySelectorAll(".toolbar-btn, .toolbar-btn-ie");
-    var openErrorModalButtons = document.querySelectorAll(".open-error-modal");
+    var openErrorModalButtons = document.querySelectorAll(".open-error-modal, .menu-body-left-item, .menu-body-right-item, .menu-footer-item");
     
     Array.from(toolbarButtons).concat(...openErrorModalButtons).forEach(button => {
         if (!button.classList.contains("ignore-error")) {

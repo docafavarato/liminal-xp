@@ -151,6 +151,12 @@ function pushToTaskbar(app) {
     taskbar.innerHTML += `<div onclick='focusModal("${app.id}")' class='taskbar-app' id='taskbar-app-${app.id}-${appName}'><img src='${appIcon}'><span>${appName}</span></div>`;
 }
 
+function toggleMenu() {
+    var menu = document.getElementById("menu");
+    if (menu.style.display == "none") menu.style.display = "block";
+    else menu.style.display = "none";
+}
+
 $(document).ready(function () {
 
     $('.application').draggable({
@@ -165,7 +171,7 @@ $(document).ready(function () {
     })
 
     var toolbarButtons = document.querySelectorAll(".toolbar-btn, .toolbar-btn-ie");
-    var openErrorModalButtons = document.querySelectorAll(".open-error-modal");
+    var openErrorModalButtons = document.querySelectorAll(".open-error-modal, .menu-body-left-item, .menu-body-right-item, .menu-footer-item");
     
     Array.from(toolbarButtons).concat(...openErrorModalButtons).forEach(button => {
         if (!button.classList.contains("ignore-error")) {
