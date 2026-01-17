@@ -51,11 +51,13 @@
                 {% include 'components/video_viewer.html' %}
 
                 {% include 'components/internet_explorer.html' %}
+
+                {% include 'components/menu.html' %}
             </div>
 
             <div id="bottom-bar">
                 <div id="windows">
-                    <img src="{{ url_for('static', filename='styles/images/start.png') }}">
+                    <img onclick="toggleMenu();" src="{{ url_for('static', filename='styles/images/start.png') }}">
                 </div>
                 
                 <img id="bar" src="{{ url_for('static', filename='styles/images/bar-replica.png') }}">
