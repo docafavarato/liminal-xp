@@ -179,7 +179,7 @@ $(document).ready(function () {
     modals.forEach(modal => {
         $(modal).on("click", function(e) {
 
-            if ($(e.target).closest(".space, .media, .toolbar-btn, .toolbar-btn-ie, .open-error-modal").length > 0) {
+            if ($(e.target).closest(".space, .media, .toolbar-btn, .toolbar-btn-ie, .open-error-modal, .next-image, .previous-image").length > 0) {
                 return;
             }
 
