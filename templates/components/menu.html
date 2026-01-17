@@ -1,0 +1,244 @@
+<div id="menu" style="display: none;">
+    <div id="menu-header">
+        <div id="menu-header-content">
+            <img src="{{ url_for('static', filename='styles/images/fish.jpg') }}">
+            <span>User</span>
+        </div> 
+    </div>
+    <div id="menu-body">
+        <div id="menu-body-left">
+            <div class="menu-body-left-item">
+                <img src="{{ url_for('static', filename='styles/images/internet-explorer.png') }}">
+                <span>Internet</span>
+            </div>
+            <div class="menu-body-left-item">
+                <img src="{{ url_for('static', filename='styles/images/Email.png') }}">
+                <span>Email</span>
+            </div>
+            <div class="menu-separator"></div>
+            <div class="menu-body-left-item">
+                <img src="{{ url_for('static', filename='styles/images/NOTEPAD.png') }}">
+                <span>Notepad</span>
+            </div>
+            <div class="menu-body-left-item">
+                <img src="{{ url_for('static', filename='styles/images/Windows Media Player 9.png') }}">
+                <span>Windows Media Player</span>
+            </div>
+            <div class="menu-body-left-item">
+                <img src="{{ url_for('static', filename='styles/images/Windows Messenger.png') }}">
+                <span>Windows Messenger</span>
+            </div>
+        </div>
+        <div id="menu-body-right">
+            <div class="menu-body-right-item">
+                <img src="{{ url_for('static', filename='styles/images/My Documents.png') }}">
+                <span><b>My Documents</b></span>
+            </div>
+            <div class="menu-body-right-item" style="margin-top: 5px;">
+                <img src="{{ url_for('static', filename='styles/images/Recent Documents.png') }}">
+                <span><b>My Recent Documents</b></span>
+            </div>
+            <div class="menu-body-right-item" style="margin-top: 5px;">
+                <img src="{{ url_for('static', filename='styles/images/My Pictures.png') }}">
+                <span><b>My Pictures</b></span>
+            </div>
+            <div class="menu-body-right-item" style="margin-top: 5px;">
+                <img src="{{ url_for('static', filename='styles/images/My Music.png') }}">
+                <span><b>My Music</b></span>
+            </div>
+            <div class="menu-body-right-item" style="margin-top: 5px;">
+                <img src="{{ url_for('static', filename='styles/images/My Computer.png') }}">
+                <span><b>My Computer</b></span>
+            </div>
+            <div class="menu-2-separator"></div>
+            <div class="menu-body-right-item">
+                <img src="{{ url_for('static', filename='styles/images/Control Panel.png') }}">
+                <span>Control Panel</span>
+            </div>
+            <div class="menu-body-right-item" style="margin-top: 5px;">
+                <img src="{{ url_for('static', filename='styles/images/Default Programs.png') }}">
+                <span>Default Programs</span>
+            </div>
+            <div class="menu-body-right-item" style="margin-top: 5px;">
+                <img src="{{ url_for('static', filename='styles/images/Network Connections.png') }}">
+                <span>Connect To</span>
+            </div>
+            <div class="menu-body-right-item" style="margin-top: 5px;">
+                <img src="{{ url_for('static', filename='styles/images/Printers and Faxes.png') }}">
+                <span>Printers and Faxes</span>
+            </div>
+            <div class="menu-2-separator"></div>
+            <div class="menu-body-right-item">
+                <img src="{{ url_for('static', filename='styles/images/Help and Support.png') }}">
+                <span>Help and Support</span>
+            </div>
+            <div class="menu-body-right-item" style="margin-top: 5px;">
+                <img src="{{ url_for('static', filename='styles/images/Search.png') }}">
+                <span>Search</span>
+            </div>
+            <div class="menu-body-right-item" style="margin-top: 5px;">
+                <img src="{{ url_for('static', filename='styles/images/Run.png') }}">
+                <span>Run</span>
+            </div>
+        </div>
+    </div>
+    <div id="menu-footer">
+        <div class="menu-footer-item" style="margin-right: 15px;">
+            <img src="{{ url_for('static', filename='styles/images/Logout.png') }}">
+            <span>Log Off</span>
+        </div>
+        <div class="menu-footer-item" style="margin-right: 10px;">
+            <img src="{{ url_for('static', filename='styles/images/Power.png') }}">
+            <span>Turn Off Computer</span>
+        </div>
+    </div>
+</div>
+
+<style>
+    
+    #menu {
+        width: 385px;
+        bottom: 39px;
+        position: fixed;
+    }
+
+    #menu-header {
+        display: flex;
+        align-items: center;
+        background: linear-gradient(rgb(0, 88, 238) 0%, rgb(53, 147, 255) 4%, rgb(40, 142, 255) 6%, rgb(18, 125, 255) 8%, rgb(3, 111, 252) 10%, rgb(2, 98, 238) 14%, rgb(0, 87, 229) 20%, rgb(0, 84, 227) 24%, rgb(0, 85, 235) 56%, rgb(0, 91, 245) 66%, rgb(2, 106, 254) 76%, rgb(0, 98, 239) 86%);
+        height: 55px;
+        border-top-right-radius: 6px;
+        border-top-left-radius: 6px;
+    }
+
+    #menu-footer {
+        display: flex;
+        flex-direction: row;
+        background: linear-gradient(rgb(0, 88, 238) 0%, rgb(53, 147, 255) 4%, rgb(40, 142, 255) 6%, rgb(18, 125, 255) 8%, rgb(3, 111, 252) 10%, rgb(2, 98, 238) 14%, rgb(0, 87, 229) 20%, rgb(0, 84, 227) 24%, rgb(0, 85, 235) 56%, rgb(0, 91, 245) 66%, rgb(2, 106, 254) 76%, rgb(0, 98, 239) 86%);
+        height: 37px;
+        border-right: 2px solid #0154ea;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .menu-footer-item img {
+        width: 25px;
+    }
+
+    .menu-footer-item span {
+        color: white;
+        margin-left: 3px;
+    }
+
+    .menu-footer-item:hover {
+        cursor: pointer;
+        background-color: #3666db;
+    }
+
+    #menu-header img {
+        height: 38px;
+        width: 38px;
+        border: 1px solid white;
+        border-radius: 2px;
+    }
+
+    #menu-header span {
+        color: white;
+        font-size: 24px;
+        margin-left: 5px;
+    }
+
+    #menu-header-content {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 5px;
+    }
+
+    #menu-body {
+        display: flex;
+        flex-direction: row;
+        border-right: 2px solid #0154ea;
+    }
+
+    #menu-body-left {
+        background-color: white;
+        width: 50%;
+        padding: 5px;
+        border-right: 1px solid #0154ea;
+    }
+
+    .menu-body-left-item {
+        cursor: pointer;
+        height: 35px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .menu-body-left-item:hover, .menu-body-right-item:hover {
+        background-color: #2e70cd;
+        color: white;
+    }
+
+    .menu-body-left-item img {
+        width: 30px;
+    }
+
+    .menu-body-left-item span {
+        margin-left: 3px;
+    }
+
+    .menu-body-right-item {
+        cursor: pointer;
+        height: 27px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .menu-body-right-item img {
+        width: 25px;
+    }
+
+    .menu-body-right-item span {
+        margin-left: 5px;
+    }
+
+    #menu-body-right {
+        background-color: #cbe3ff;
+        width: 50%;
+        padding: 5px;
+    }
+
+    .menu-separator {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 7.5px;
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 0.1) 50%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        background-clip: content-box;
+    }
+
+    .menu-2-separator {
+        margin-top: 5px;
+        margin-bottom: 5px;
+        height: 7.5px;
+        background: linear-gradient(
+          to right,
+          rgba(0, 0, 0, 0) 0%,
+          #87b3e2b5 50%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        border-top: 3px solid transparent;
+        border-bottom: 3px solid transparent;
+        background-clip: content-box;
+    }
+
+</style>
