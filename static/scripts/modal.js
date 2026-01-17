@@ -103,6 +103,7 @@ function nextImage(originId) {
         target.style.display = "block";
 
         highlightCurrentApp(targetId);
+        pushToTaskbar(target);
 
         closeModal(originId);
     }
@@ -124,6 +125,8 @@ function previousImage(originId) {
         target.style.display = "block";
 
         highlightCurrentApp(targetId);
+
+        pushToTaskbar(target);
 
         closeModal(originId);
     }
