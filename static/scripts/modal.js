@@ -1,4 +1,4 @@
-var globalIndex = 0;
+var globalIndex = 1;
 
 let currentMouseX = 0;
 let currentMouseY = 0;
@@ -14,8 +14,8 @@ function focusModal(targetId) {
     const target = document.getElementById(targetId);
     const modalContent = target.firstElementChild;
 
-    modalContent.style.zIndex = globalIndex + 1;
     globalIndex += 1;
+    modalContent.style.zIndex = globalIndex;
     
     highlightCurrentApp(targetId);
 }
@@ -63,7 +63,8 @@ function openModal(targetId) {
     if (posX < 0) posX = 10;
     if (posY < 0) posY = 10;
 
-    modalContent.style.zIndex = globalIndex + 1;
+    globalIndex += 1;
+    modalContent.style.zIndex = globalIndex;
     modalContent.style.left = posX + "px";
     modalContent.style.top = posY + "px";
 
@@ -176,11 +177,17 @@ $(document).ready(function () {
 
     var modals = document.querySelectorAll(".application-window");
     modals.forEach(modal => {
-        $(modal).on("click", function() {
-            modal.style.zIndex = globalIndex + 1;
+        $(modal).on("click", function(e) {
+
+            if ($(e.target).closest(".space, .media, .toolbar-btn, .toolbar-btn-ie, .open-error-modal").length > 0) {
+                return;
+            }
+
             globalIndex += 1;
+            modal.style.zIndex = globalIndex;
             highlightCurrentApp(modal.parentNode.id);
         });
     });
+
 });
 
