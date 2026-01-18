@@ -68,7 +68,16 @@
                                     <span  style="margin-left: 5px;">{{ randomFileSize() }}</span>
                                 </div>
                             </div>
-                            {% set ns.video_index = ns.video_index + 1 %}
+                            {% set ns.video_index = ns.video_index + 1 %} 
+                        {% elif ".mp3" in media %}
+                        <div class="media" onclick="openModal('{{ media }}-player')" style="display: flex; flex-direction: row; align-items: center; justify-content: left; width: 10rem; margin: .5rem; cursor: pointer;">
+                                <img src="{{ url_for('static', filename='styles/images/song-icon.png') }}" width="60">
+                                <div class="file-info" style="display: flex; flex-direction: column;">
+
+                                    <span  style="margin-left: 5px;">{{ media }}</span>
+                                    <span  style="margin-left: 5px;">{{ randomFileSize() }}</span>
+                                </div>
+                            </div>
                         {% endif %}
                     {% endfor %}
                 </div>
