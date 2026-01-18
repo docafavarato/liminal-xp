@@ -130,21 +130,6 @@ html, body {
 }
 
 .close-button {
-    border: 1px solid white;
-    border-radius: 3px;
-    color: white;
-    line-height: 1rem !important;
-    background-color: red;
-    background-image: radial-gradient(
-      circle at 90% 90%,
-      #cc4600 0%,
-      #dc6527 55%,
-      #cd7546 70%,
-      #ffccb2 90%,
-      white 100%
-    );
-    height: 1.5rem;
-    width: 1.5rem;
     cursor: pointer;
     margin-left: auto;
     margin-right: 6px;
