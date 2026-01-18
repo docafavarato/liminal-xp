@@ -22,6 +22,16 @@ function focusModal(targetId) {
     highlightCurrentApp(targetId);
 }
 
+function maximizeModal(targetId) {
+    var target = document.getElementById(targetId);
+    var modalContent = target.firstElementChild;
+
+    modalContent.style.left = "0px";
+    modalContent.style.top = "0px";
+    modalContent.style.width = "100vw";
+    modalContent.style.height = "calc(100vh - 35px)";
+}
+
 function minimizeModal(targetId) {
     var target = document.getElementById(targetId);
     var modalContent = target.firstElementChild;
