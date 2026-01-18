@@ -15,7 +15,8 @@ const commandResponses = {
         formatRow("TREE", "Displays the contents of a directory"),
         formatRow("DATE", "Displays the current date"),
         formatRow("NETSTAT", "Displays active connections"),
-        formatRow("AUTOPLAY [value]", "Sets the music autoplay on or off when viewing liminal folders")
+        formatRow("AUTOPLAY [value]", "Sets the music autoplay on or off when viewing liminal folders"),
+        formatRow("VOLUME [value]", "Sets the system volume to a value between 0 to 100")
     ],
     sysinfo: () => [
         formatRow("Host Name:", "?"),
@@ -71,7 +72,19 @@ function handleCMDInput() {
         outputLines = [];
     } 
 
-    if (inputValue.startsWith("autoplay ")) {
+    else if (inputValue.startsWith("volume ")) {
+        var value = inputValue.split(" ")[1] / 100;
+        if (value > 1) value = 1;
+        if (value < 0) value = 0;
+        var audios = document.querySelectorAll("audio");
+        audios.forEach(a => {
+           a.volume = value; 
+        });
+
+        outputLines = ["volume set to " + value];
+    }
+
+    else if (inputValue.startsWith("autoplay ")) {
         const value = inputValue.split(" ")[1];
         var holder = document.getElementById("holder");
 
