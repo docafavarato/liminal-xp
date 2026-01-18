@@ -30,6 +30,7 @@ function maximizeModal(targetId) {
     modalContent.style.top = "0px";
     modalContent.style.width = "100vw";
     modalContent.style.height = "calc(100vh - 35px)";
+    target.classList.add("maximized");
 }
 
 function minimizeModal(targetId) {
@@ -215,6 +216,14 @@ $(document).ready(function () {
             globalIndex += 1;
             modal.style.zIndex = globalIndex;
             highlightCurrentApp(modal.parentNode.id);
+        });
+
+        $(modal).on("dragstart", function() {
+            if (modal.parentNode.classList.contains("maximized")) {
+                modal.style.width = "800px";
+                modal.style.height = "500px";
+                modal.parentNode.classList.remove("maximized");
+            }
         });
     });
 
