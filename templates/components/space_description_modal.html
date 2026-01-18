@@ -5,7 +5,7 @@
                 <div class="window-header-top">
                     <img src="{{ url_for('static', filename='styles/images/NOTEPAD.png') }}" style="width: 20px; margin-left: 2px;">
                     <span style="color: white; margin-left: 3px;">description.txt</span>
-                    <button onclick="closeModal('{{ space.name }}-description')" class="close-button">X</button>
+                    <img onclick="closeModal('{{ space.name }}-description');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
                 </div>
 
                 <div class="window-header-toolbar">
