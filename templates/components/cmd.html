@@ -4,7 +4,10 @@
             <div class="window-header-top">
                 <img src="{{ url_for('static', filename='styles/images/Command Prompt.png') }}" style="width: 20px; margin-left: 5px;">
                 <span style="color: white; margin-left: 5px;">C:\WINDOWS\system32\cmd.exe</span>
-                <img onclick="closeModal('cmd');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                <div class="window-controls">
+                    <img onclick="minimizeModal('cmd');" src="{{ url_for('static', filename='styles/images/Minimize.png') }}" class="close-button" style="width: 20px;">
+                    <img onclick="closeModal('cmd');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                </div>
             </div>
         </div>
         <div class="window-body cmd-body" id="cmd-body" style="background-color: black !important;">

@@ -3,7 +3,9 @@
         <div class="window-header">
             <div class="window-header-top">
                 <span style="color: white; margin-left: 10px;">Notification</span>
-                <img onclick="closeModal('song-toast');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                <div class="window-controls">
+                    <img onclick="closeModal('song-toast');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                </div>
             </div>
         </div>
         <div class="window-body">

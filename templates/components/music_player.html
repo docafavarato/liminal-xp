@@ -9,7 +9,10 @@
                 <div class="window-header-top">
                     <img src="{{ url_for('static', filename='styles/images/song-icon.png') }}" style="width: 20px; margin-left: 5px;">
                     <span style="color: white; margin-left: 5px;">{{ song }} - Music player</span>
-                    <button onclick='closeModal("{{ song }}-player"); closeSong("{{ song }}");' class="close-button">X</button>
+                    <div class="window-controls">
+                        <img onclick="minimizeModal('{{ song }}-player');" src="{{ url_for('static', filename='styles/images/Minimize.png') }}" class="close-button" style="width: 20px;">
+                        <img onclick="closeModal('{{ song }}-player'); closeSong('{{ song }}')" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                    </div>
                 </div>
 
                 <div class="window-header-toolbar">

@@ -16,8 +16,21 @@ function focusModal(targetId) {
 
     globalIndex += 1;
     modalContent.style.zIndex = globalIndex;
+
+    target.style.display = "block";
     
     highlightCurrentApp(targetId);
+}
+
+function minimizeModal(targetId) {
+    var target = document.getElementById(targetId);
+    var modalContent = target.firstElementChild;
+
+    modalContent.classList.add("minimized-anim");
+    setTimeout(() => {
+        target.style.display = "none";
+        modalContent.classList.remove("minimized-anim");
+    }, 400);
 }
 
 function closeModal(target) {

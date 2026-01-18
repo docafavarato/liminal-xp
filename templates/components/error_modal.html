@@ -3,7 +3,10 @@
         <div class="window-header">
             <div class="window-header-top">
                 <span style="color: white; margin-left: 8px;">Error</span>
-                <img onclick="closeModal('error-modal');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                <div class="window-controls">
+                    <img onclick="minimizeModal('error-modal');" src="{{ url_for('static', filename='styles/images/Minimize.png') }}" class="close-button" style="width: 20px;">
+                    <img onclick="closeModal('error-modal');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                </div>
             </div>
         </div>
         <div class="window-body">

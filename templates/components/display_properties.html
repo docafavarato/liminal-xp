@@ -3,7 +3,10 @@
         <div class="window-header">
             <div class="window-header-top">
                 <span style="color: white; margin-left: 5px;">Display Properties</span>
-                <img onclick="closeModal('display-properties');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                <div class="window-controls">
+                    <img onclick="minimizeModal('display-properties');" src="{{ url_for('static', filename='styles/images/Minimize.png') }}" class="close-button" style="width: 20px;">
+                    <img onclick="closeModal('display-properties');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                </div>
             </div>
         </div>
         <div class="window-body">

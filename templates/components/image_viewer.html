@@ -8,7 +8,10 @@
                         <div class="window-header-top">
                             <img src="{{ url_for('static', filename='styles/images/Windows Picture and Fax Viewer.png') }}" style="width: 20px; margin-left: 2px;">
                             <span style="color: white; margin-left: 3px;">{{ loop.index }}.jpeg - Windows Picture and Fax Viewer</span>
-                            <img onclick="closeModal('{{ space.name }}-image_media-{{ ns.image_index }}');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                            <div class="window-controls">
+                                <img onclick="minimizeModal('{{ space.name }}-image_media-{{ ns.image_index }}');" src="{{ url_for('static', filename='styles/images/Minimize.png') }}" class="close-button" style="width: 20px;">
+                                <img onclick="closeModal('{{ space.name }}-image_media-{{ ns.image_index }}');" src="{{ url_for('static', filename='styles/images/Exit.png') }}" class="close-button" style="width: 20px;">
+                            </div>
                         </div>
                     </div>
                     <div class="window-body">
